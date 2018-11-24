@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.xuyijie.ebuyshop.util.StatusBarUtil;
+
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -36,6 +38,9 @@ public abstract class BaseActivity extends FragmentActivity {
     public static BaseActivity getInstances() {
         return instances;
     }
+    protected void notSetStatusBarColor() {
+        StatusBarUtil.setStatusBarTranslucent(this);
+    }
 
 
     @Override
@@ -44,7 +49,9 @@ public abstract class BaseActivity extends FragmentActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         // 设置只竖屏显示
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        StatusBarUtil.setStatusBarColor(this, 0xff000000);
         setContentView(intiLayout());
+
         ButterKnife.inject(this);
         initView();
         initData();

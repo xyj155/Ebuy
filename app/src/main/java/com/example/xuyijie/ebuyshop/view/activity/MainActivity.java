@@ -40,6 +40,7 @@ public class MainActivity extends BaseActivity {
     private ShopCarFragment shopcarFragment;
     private GoodsSortFragment sortFragment;
     private UserFragment userFragment;
+
     @Override
     public int intiLayout() {
         return R.layout.activity_main;
@@ -48,7 +49,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView() {
 
-
+        notSetStatusBarColor();
         bottomBar.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
