@@ -2,8 +2,7 @@ package com.example.xuyijie.ebuyshop.contract;
 
 import com.example.xuyijie.ebuyshop.base.BaseGson;
 import com.example.xuyijie.ebuyshop.base.BaseView;
-import com.example.xuyijie.ebuyshop.gson.BrandsClassifyGson;
-import com.example.xuyijie.ebuyshop.gson.BrandsGson;
+import com.example.xuyijie.ebuyshop.gson.BrandsList;
 
 import java.util.List;
 
@@ -15,19 +14,19 @@ import rx.Observable;
 
 public interface BrandsContract {
     interface Model {
-        Observable<BaseGson<BrandsGson>> getBrandsList(String location);
+//        Observable<BaseGson<BrandsGson>> getBrandsPurse(String location);
 
-        Observable<BaseGson<BrandsClassifyGson>> getBrandsClass();
+        Observable<BaseGson<BrandsList>> getBrandsList();
     }
 
     interface View extends BaseView {
-        void loadBrandsList(BrandsGson bannerGson);
-        void loadBrands(List<BrandsClassifyGson> bannerGson);
+//        void loadBrandsList(BrandsGson bannerGson);
+        void loadBrands(List<BrandsList> bannerGson);
     }
 
     interface Presenter {
-        void getBrandsList(String location);
+//        void getBrandsList(String location);
 
-        void getBrandsClass();
+        void getBrandsList();
     }
 }

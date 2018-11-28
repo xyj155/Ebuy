@@ -25,8 +25,6 @@ public class HomeModel implements HomeContract.Model {
         return RetrofitUtil.getInstance().getServerices().getHomeCard(location);
     }
 
-
-
     @Override
     public Observable<BaseGson<AdGson>> getAdBanner(String location) {
         return RetrofitUtil.getInstance().getServerices().getADBanner(location);

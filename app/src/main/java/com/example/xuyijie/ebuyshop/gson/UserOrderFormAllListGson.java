@@ -20,7 +20,7 @@ public class UserOrderFormAllListGson {
      * shop_cover : https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542075380&di=8a84bd92041179f9281202f5930cf2e0&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.uimaker.com%2Fuploads%2Fuserup%2F0%2F150243b48-O33.jpg
      * reputation : 3
      * banner : https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542012724&di=3392b9f91cc8fe9e3eebf5ab1f377ee0&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01e25259a8c8f7a8012028a99fb154.jpg%402o.jpg
-     * goods : [{"id":102,"goods_name":"【三只松鼠_碧根果210gx2】休闲零食坚果特产山核桃炒货长寿果","goods_location":"嘉兴","goods_tags":"食品,炒货","goods_price":"15.00","goods_pic":"https://img.alicdn.com/imgextra/i2/880734502/TB2B6SzvRjTBKNjSZFwXXcG4XXa_!!880734502.jpg_430x430q90.jpg","goods_describe":"【三只松鼠_碧根果210gx2】休闲零食坚果特产山核桃炒货长寿果","goods_stock":"5442","goods_owner":"1","updatetime":"2018-11-16 22:31:59","goods_kind":"鞋子","is_purse":"1","original_price":"6.00","post_free":"5.00","num":1,"comment":"苹果6 WhiteSmoke 12GB"}]
+     * goods : [{"id":102,"goods_name":"【三只松鼠_碧根果210gx2】休闲零食坚果特产山核桃炒货长寿果","goods_location":"嘉兴","goods_tags":"icon_foods,炒货","goods_price":"15.00","goods_pic":"https://img.alicdn.com/imgextra/i2/880734502/TB2B6SzvRjTBKNjSZFwXXcG4XXa_!!880734502.jpg_430x430q90.jpg","goods_describe":"【三只松鼠_碧根果210gx2】休闲零食坚果特产山核桃炒货长寿果","goods_stock":"5442","goods_owner":"1","updatetime":"2018-11-16 22:31:59","goods_kind":"icon_shose","is_purse":"1","original_price":"6.00","post_free":"5.00","num":1,"comment":"苹果6 WhiteSmoke 12GB"}]
      */
 
     private int id;
@@ -146,14 +146,14 @@ public class UserOrderFormAllListGson {
          * id : 102
          * goods_name : 【三只松鼠_碧根果210gx2】休闲零食坚果特产山核桃炒货长寿果
          * goods_location : 嘉兴
-         * goods_tags : 食品,炒货
+         * goods_tags : icon_foods,炒货
          * goods_price : 15.00
          * goods_pic : https://img.alicdn.com/imgextra/i2/880734502/TB2B6SzvRjTBKNjSZFwXXcG4XXa_!!880734502.jpg_430x430q90.jpg
          * goods_describe : 【三只松鼠_碧根果210gx2】休闲零食坚果特产山核桃炒货长寿果
          * goods_stock : 5442
          * goods_owner : 1
          * updatetime : 2018-11-16 22:31:59
-         * goods_kind : 鞋子
+         * goods_kind : icon_shose
          * is_purse : 1
          * original_price : 6.00
          * post_free : 5.00

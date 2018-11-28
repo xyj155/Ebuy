@@ -2,8 +2,7 @@ package com.example.xuyijie.ebuyshop.model;
 
 import com.example.xuyijie.ebuyshop.base.BaseGson;
 import com.example.xuyijie.ebuyshop.contract.BrandsContract;
-import com.example.xuyijie.ebuyshop.gson.BrandsClassifyGson;
-import com.example.xuyijie.ebuyshop.gson.BrandsGson;
+import com.example.xuyijie.ebuyshop.gson.BrandsList;
 import com.example.xuyijie.ebuyshop.http.RetrofitUtil;
 
 import rx.Observable;
@@ -13,13 +12,13 @@ import rx.Observable;
  */
 
 public class BrandsModel implements BrandsContract.Model {
-    @Override
-    public Observable<BaseGson<BrandsGson>> getBrandsList(String location) {
-        return RetrofitUtil.getInstance().getServerices().getBrandsList(location);
-    }
+//    @Override
+//    public Observable<BaseGson<BrandsGson>> getBrandsPurse(String location) {
+//        return RetrofitUtil.getInstance().getServerices().getBrandsPurse(location);
+//    }
 
     @Override
-    public Observable<BaseGson<BrandsClassifyGson>> getBrandsClass() {
-        return RetrofitUtil.getInstance().getServerices().getBrands();
+    public Observable<BaseGson<BrandsList>> getBrandsList() {
+        return RetrofitUtil.getInstance().getServerices().getBrandsList();
     }
 }

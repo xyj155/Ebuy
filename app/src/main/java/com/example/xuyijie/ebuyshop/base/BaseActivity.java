@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.xuyijie.ebuyshop.R;
 import com.example.xuyijie.ebuyshop.util.StatusBarUtil;
 
 import java.util.List;
@@ -31,17 +32,19 @@ public abstract class BaseActivity extends FragmentActivity {
     /***获取TAG的activity名称**/
     protected final String TAG = this.getClass().getSimpleName();
 
-    private ImageView back;
-    private TextView  title;
+
     public static BaseActivity instances;
 
     public static BaseActivity getInstances() {
         return instances;
     }
+
     protected void notSetStatusBarColor() {
         StatusBarUtil.setStatusBarTranslucent(this);
     }
 
+    private ImageView ivBack;
+    private TextView tvTitle, tvMenu;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +52,7 @@ public abstract class BaseActivity extends FragmentActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         // 设置只竖屏显示
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        StatusBarUtil.setStatusBarColor(this, 0xff000000);
+        StatusBarUtil.setStatusBarColor(this, setStatusBarColor());
         setContentView(intiLayout());
 
         ButterKnife.inject(this);
@@ -61,9 +64,21 @@ public abstract class BaseActivity extends FragmentActivity {
 
     }
 
+    public BaseActivity initToolBar() {
+        ivBack = findViewById(R.id.iv_back);
+        tvTitle = findViewById(R.id.tv_title);
+        tvMenu = findViewById(R.id.tv_menu);
+        return this;
+    }
+
+
+    public BaseActivity setToolBarMenu(String var) {
+        tvMenu.setText(var);
+        return this;
+    }
 
     public BaseActivity setToolbarBackIco() {
-        back.setOnClickListener(new View.OnClickListener() {
+        ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -73,15 +88,26 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     public BaseActivity setToolBarTitle(String tv) {
-        title.setText(tv);
+        tvTitle.setText(tv);
         return this;
     }
 
-    public BaseActivity setToolbarSubtitle(String titles) {
-        title.setText(titles);
+    public BaseActivity setToolbarMenuEvent(final OnClickListener onClickListener) {
+        this.clickListener = onClickListener;
+        tvMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onClickListener();
+            }
+        });
         return this;
     }
 
+    private OnClickListener clickListener;
+
+    public interface OnClickListener {
+        void onClickListener();
+    }
 
     /**
      * 判断某个Activity 界面是否在前台

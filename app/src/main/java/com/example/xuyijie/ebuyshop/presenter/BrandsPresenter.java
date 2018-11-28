@@ -3,9 +3,10 @@ package com.example.xuyijie.ebuyshop.presenter;
 import com.example.xuyijie.ebuyshop.base.BaseGson;
 import com.example.xuyijie.ebuyshop.base.BaseObserver;
 import com.example.xuyijie.ebuyshop.contract.BrandsContract;
-import com.example.xuyijie.ebuyshop.gson.BrandsClassifyGson;
-import com.example.xuyijie.ebuyshop.gson.BrandsGson;
+import com.example.xuyijie.ebuyshop.gson.BrandsList;
 import com.example.xuyijie.ebuyshop.model.BrandsModel;
+
+import java.util.List;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -23,12 +24,12 @@ public class BrandsPresenter implements BrandsContract.Presenter {
     }
 
     @Override
-    public void getBrandsList(String location) {
+    public void getBrandsList() {
         view.showLoading();
-        brandsModel.getBrandsList(location)
+        brandsModel.getBrandsList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new BaseObserver<BaseGson<BrandsGson>>() {
+                .subscribe(new BaseObserver<BaseGson<BrandsList>>() {
                     @Override
                     public void onError(String error) {
                         view.hideLoading();
@@ -41,11 +42,11 @@ public class BrandsPresenter implements BrandsContract.Presenter {
                     }
 
                     @Override
-                    public void onNext(BaseGson<BrandsGson> brandsGsonBaseGson) {
+                    public void onNext(BaseGson<BrandsList> brandsGsonBaseGson) {
                         view.hideLoading();
                         if (brandsGsonBaseGson.isStatus()) {
-                            BrandsGson data = brandsGsonBaseGson.getData();
-                            view.loadBrandsList(data);
+                            List<BrandsList> list = brandsGsonBaseGson.getList();
+                            view.loadBrands(list);
                         } else {
                             view.loadFailed(brandsGsonBaseGson.getMsg());
                         }
@@ -53,33 +54,33 @@ public class BrandsPresenter implements BrandsContract.Presenter {
                 });
     }
 
-    @Override
-    public void getBrandsClass() {
-        view.showLoading();
-        brandsModel.getBrandsClass()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new BaseObserver<BaseGson<BrandsClassifyGson>>() {
-                    @Override
-                    public void onError(String error) {
-                        view.hideLoading();
-                        view.loadFailed(error);
-                    }
-
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onNext(BaseGson<BrandsClassifyGson> brandsGsonBaseGson) {
-                        view.hideLoading();
-                        if (brandsGsonBaseGson.isStatus()) {
-                            view.loadBrands(brandsGsonBaseGson.getList());
-                        } else {
-                            view.loadFailed(brandsGsonBaseGson.getMsg());
-                        }
-                    }
-                });
-    }
+//    @Override
+//    public void getBrandsClass() {
+//        view.showLoading();
+//        brandsModel.getBrandsList()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new BaseObserver<BaseGson<BrandsList>>() {
+//                    @Override
+//                    public void onError(String error) {
+//                        view.hideLoading();
+//                        view.loadFailed(error);
+//                    }
+//
+//                    @Override
+//                    public void onCompleted() {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(BaseGson<BrandsList> brandsGsonBaseGson) {
+//                        view.hideLoading();
+//                        if (brandsGsonBaseGson.isStatus()) {
+//                            view.loadBrands(brandsGsonBaseGson.getList());
+//                        } else {
+//                            view.loadFailed(brandsGsonBaseGson.getMsg());
+//                        }
+//                    }
+//                });
+//    }
 }

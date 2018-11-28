@@ -48,4 +48,31 @@ public class HomePursePresenter implements HomePurseContract.Presenter {
                     }
                 });
     }
+
+    @Override
+    public void getDiscountList(String location) {
+        homePurseModel.getDiscountList(location)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseObserver<BaseGson<GoodGson.GoodsBean>>() {
+                    @Override
+                    public void onError(String error) {
+                        view.loadFailed(error);
+                    }
+
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onNext(BaseGson<GoodGson.GoodsBean> hotGoodsGsonBaseGson) {
+                        if (hotGoodsGsonBaseGson.isStatus()) {
+                            view.loadDiscountGson(hotGoodsGsonBaseGson.getList());
+                        } else {
+                            view.loadFailed(hotGoodsGsonBaseGson.getMsg());
+                        }
+                    }
+                });
+    }
 }

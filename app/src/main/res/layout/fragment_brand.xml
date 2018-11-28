@@ -20,49 +20,17 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/iv_brand_home"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_170"
-                android:scaleType="fitXY" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_100"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <ImageView
-                    android:id="@+id/iv_brand_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/dp_1.5"
-                    android:layout_weight="1"
-                    android:scaleType="fitXY" />
-
-                <ImageView
-                    android:id="@+id/iv_brand_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/dp_1.5"
-                    android:layout_weight="1"
-                    android:scaleType="fitXY" />
-
-                <ImageView
-                    android:id="@+id/iv_brand_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/dp_1.5"
-                    android:layout_weight="1"
-                    android:scaleType="fitXY" />
-            </LinearLayout>
+      <android.support.v7.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/ry_purse_brands"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="@dimen/dp_8"
-                android:text="更多品牌"
+                android:text="更多店家"
                 android:textColor="#000"
                 android:textSize="17sp" />
 

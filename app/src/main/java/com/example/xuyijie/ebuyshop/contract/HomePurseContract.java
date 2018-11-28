@@ -16,14 +16,18 @@ import rx.Observable;
 public interface HomePurseContract {
     interface Model {
         Observable<BaseGson<GoodGson.GoodsBean>> getActiveList(String location);
+
+        Observable<BaseGson<GoodGson.GoodsBean>> getDiscountList(String location);
     }
 
     interface View extends BaseView {
         void loadPurseGson(List<GoodGson.GoodsBean> loadPurseList);
-        
+        void loadDiscountGson(List<GoodGson.GoodsBean> loadPurseList);
+
     }
 
     interface Presenter {
         void getActiveList(String location);
+        void getDiscountList(String location);
     }
 }

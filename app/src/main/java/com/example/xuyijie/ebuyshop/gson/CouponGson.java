@@ -30,7 +30,7 @@ public class CouponGson {
         public static class KindsBean {
             /**
              * pic : null
-             * name : 食品
+             * name : icon_foods
              */
 
             private Object pic;
@@ -65,7 +65,7 @@ public class CouponGson {
              * coupon_num : 100
              * location : 嘉兴市
              * shop_pic : https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/26931ff58e10abb716c9070c966b43ee_121_121.jpg
-             * shop_kind : 食品
+             * shop_kind : icon_foods
              * kind_pic : null
              * is_dective : 0
              */

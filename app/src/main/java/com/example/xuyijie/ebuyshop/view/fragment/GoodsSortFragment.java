@@ -38,7 +38,7 @@ public class GoodsSortFragment extends BaseFragment {
     MagicIndicator sortTab;
     @InjectView(R.id.sort_vp)
     CustomScrollViewPager sortVp;
-    private String[] title = {"分类", "品牌", "热门"};
+    private String[] title = {"分类", "店家", "热门"};
 
     @Override
     protected int setView() {
@@ -51,7 +51,7 @@ public class GoodsSortFragment extends BaseFragment {
         TabPagerAdapter tabPagerAdapter = new TabPagerAdapter(getChildFragmentManager(), fragments, title);
         fragments.add(new FragmentKind());
         fragments.add(new FragmentbBrand());
-        fragments.add(new FragmentbHot());
+        fragments.add(new FragmentHot());
         sortVp.setAdapter(tabPagerAdapter);
         sortVp.setCurrentItem(0);
         sortTab.setBackgroundColor(Color.WHITE);

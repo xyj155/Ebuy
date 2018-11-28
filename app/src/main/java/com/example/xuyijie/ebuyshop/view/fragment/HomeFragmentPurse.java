@@ -46,6 +46,7 @@ public class HomeFragmentPurse extends BaseFragment implements HomePurseContract
     @Override
     protected void init(View view) {
         homePursePresenter.getActiveList("嘉兴");
+        ryPurse.setFocusable(false);
         ryPurse.setLayoutManager(new LinearLayoutManager(getContext()));
         ryPurse.setNestedScrollingEnabled(false);
         goodsAdapter.bindToRecyclerView(ryPurse);
@@ -91,6 +92,11 @@ public class HomeFragmentPurse extends BaseFragment implements HomePurseContract
         goodsAdapter.replaceData(loadPurseList);
         Log.i(TAG, "loadPurseGson: "+loadPurseList);
         ryPurse.setAdapter(goodsAdapter);
+    }
+
+    @Override
+    public void loadDiscountGson(List<GoodGson.GoodsBean> loadPurseList) {
+
     }
 
 

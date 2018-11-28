@@ -6,16 +6,15 @@ import java.util.List;
  * Created by 徐易杰 on 2018/11/24.
  */
 
-public class BrandsClassifyGson<T> {
-
+public class BrandsList {
 
     /**
      * key : H
-     * value : [{"name":"海澜之家","initials":"H"},{"name":"花花公子","initials":"H"},{"name":"花姐","initials":"H"}]
+     * list : [{"name":"海澜之家","initials":"H"},{"name":"花花公子","initials":"H"},{"name":"花姐","initials":"H"}]
      */
 
     private String key;
-    private List<ValueBean> value;
+    private List<ListBean> list;
 
     public String getKey() {
         return key;
@@ -25,15 +24,15 @@ public class BrandsClassifyGson<T> {
         this.key = key;
     }
 
-    public List<ValueBean> getValue() {
-        return value;
+    public List<ListBean> getList() {
+        return list;
     }
 
-    public void setValue(List<ValueBean> value) {
-        this.value = value;
+    public void setList(List<ListBean> list) {
+        this.list = list;
     }
 
-    public static class ValueBean {
+    public static class ListBean {
         /**
          * name : 海澜之家
          * initials : H
@@ -56,7 +55,7 @@ public class BrandsClassifyGson<T> {
 
         public void setInitials(String initials) {
             this.initials = initials;
-
         }
+
     }
 }

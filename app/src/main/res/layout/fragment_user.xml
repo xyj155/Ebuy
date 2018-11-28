@@ -28,8 +28,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_175"
-            android:paddingTop="@dimen/dp_25">
+            android:layout_height="@dimen/dp_175">
 
             <TextView
                 android:id="@+id/tv_title"

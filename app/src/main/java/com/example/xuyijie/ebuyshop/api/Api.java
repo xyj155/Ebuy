@@ -6,8 +6,7 @@ import com.example.xuyijie.ebuyshop.base.EmptyGson;
 import com.example.xuyijie.ebuyshop.gson.AdGson;
 import com.example.xuyijie.ebuyshop.gson.AddressGson;
 import com.example.xuyijie.ebuyshop.gson.BannerGson;
-import com.example.xuyijie.ebuyshop.gson.BrandsClassifyGson;
-import com.example.xuyijie.ebuyshop.gson.BrandsGson;
+import com.example.xuyijie.ebuyshop.gson.BrandsList;
 import com.example.xuyijie.ebuyshop.gson.CouponGson;
 import com.example.xuyijie.ebuyshop.gson.ExpressGson;
 import com.example.xuyijie.ebuyshop.gson.GoodGson;
@@ -52,11 +51,10 @@ public interface Api {
     @GET("/SchoolShop/public/index.php/index/Home/getHomeCard")
     Observable<BaseGson<HomeCardGson>> getHomeCard(@Query("location") String location);
 
-    @GET("/SchoolShop/public/index.php/index/Home/getBrands")
-    Observable<BaseGson<BrandsClassifyGson>> getBrands();
-
     @GET("/SchoolShop/public/index.php/index/Home/getBrandsList")
-    Observable<BaseGson<BrandsGson>> getBrandsList(@Query("location")String location);
+    Observable<BaseGson<BrandsList>> getBrandsList();
+
+
 
     @FormUrlEncoded
     @POST("/SchoolShop/public/index.php/index/User/login")
@@ -89,8 +87,11 @@ public interface Api {
     @GET("/SchoolShop/public/index.php/index/Home/getActiveList")
     Observable<BaseGson<GoodGson.GoodsBean>> getActiveList(@Query("location") String location);
 
+    @GET("/SchoolShop/public/index.php/index/Home/getActiveList")
+    Observable<BaseGson<GoodGson.GoodsBean>> getDiscountList(@Query("location") String location);
+
     @GET("/SchoolShop/public/index.php/index/Goods/getGoodsDetail")
-    Observable<BaseGson<GoodsDetailGson>> getGoodsDetail(@Query("uid") String uid, @Query("good_id") String goodId, @Query("kind") String kind);
+    Observable<BaseGson<GoodsDetailGson>> getGoodsDetail(@Query("uid") String uid, @Query("good_id") String goodId);
 
     @GET("/SchoolShop/public/index.php/index/Seller/getSellerList")
     Observable<BaseGson<ShopGson>> getSellerList(@Query("location") String location);

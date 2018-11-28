@@ -16,4 +16,9 @@ public class HomePurseModel implements HomePurseContract.Model {
     public Observable<BaseGson<GoodGson.GoodsBean>> getActiveList(String location) {
         return RetrofitUtil.getInstance().getServerices().getActiveList(location);
     }
+
+    @Override
+    public Observable<BaseGson<GoodGson.GoodsBean>> getDiscountList(String location) {
+        return RetrofitUtil.getInstance().getServerices().getDiscountList(location);
+    }
 }

@@ -49,6 +49,7 @@ public class FragmentKind extends BaseFragment implements HomeSortContract.View 
     private SortItemAdapter sortAdapter = new SortItemAdapter(null);
     private GoodsAdapter goodAdapter;
     private List<GoodGson.GoodsBean> goodsList = new ArrayList<>();
+
     @Override
     protected int setView() {
         return R.layout.fragment_kind;
@@ -56,10 +57,10 @@ public class FragmentKind extends BaseFragment implements HomeSortContract.View 
 
     @Override
     protected void init(View view) {
-        final GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
+        final GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         ryList.setLayoutManager(layoutManager);
         rySort.setLayoutManager(new LinearLayoutManager(getActivity()));
-        goodAdapter = new GoodsAdapter(goodsList,getContext());
+        goodAdapter = new GoodsAdapter(goodsList, getContext());
         ryList.setAdapter(goodAdapter);
     }
 
@@ -101,9 +102,10 @@ public class FragmentKind extends BaseFragment implements HomeSortContract.View 
     }
 
     private static final String TAG = "FragmentKind";
+
     @Override
     public void loadFailed(String msg) {
-        Log.i(TAG, "loadFailed: "+msg);
+        Log.i(TAG, "loadFailed: " + msg);
         Toast.makeText(getContext(), "获取商品列表失败，请重试", Toast.LENGTH_SHORT).show();
     }
 
@@ -145,6 +147,7 @@ public class FragmentKind extends BaseFragment implements HomeSortContract.View 
                             layoutPosition = helper.getLayoutPosition();
                             notifyDataSetChanged();
                             homeSortPresenter.getGoodsListByLocation("嘉兴", item, "1");
+                            slSort.autoRefresh();
                         }
                     });
             if (helper.getPosition() == layoutPosition) {
